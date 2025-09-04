@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <ScrollToTop />
-        <RouteTransitionVideo skipFirst={true} />
+  <RouteTransitionVideo />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

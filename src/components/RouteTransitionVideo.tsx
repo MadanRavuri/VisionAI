@@ -2,30 +2,38 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const RouteTransitionVideo: React.FC<{ skipFirst?: boolean }> = ({ skipFirst = false }) => {
+
+const RouteTransitionVideo: React.FC = () => {
   const location = useLocation();
   const [show, setShow] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const firstLoad = useRef(true);
   const initialPath = useRef(location.pathname);
 
   useEffect(() => {
-    // Skip transition if this is the first load and skipFirst is true
-    if (skipFirst && firstLoad.current) {
+    if (firstLoad.current) {
+      // Play intro.mp4 on first load
+      setVideoSrc('/intro.mp4');
+      setShow(true);
       firstLoad.current = false;
       initialPath.current = location.pathname;
       return;
     }
-    
     // Only show transition if we're actually navigating to a different path
     if (location.pathname !== initialPath.current) {
+      setVideoSrc('/transition.mp4');
       setShow(true);
+      initialPath.current = location.pathname;
     }
-  }, [location.pathname, skipFirst]);
+  }, [location.pathname]);
 
   // Allow manual triggering (e.g., before navigation to ensure visible)
   useEffect(() => {
-    const handler = () => setShow(true);
+    const handler = () => {
+      setVideoSrc('/transition.mp4');
+      setShow(true);
+    };
     window.addEventListener('force-route-transition', handler as EventListener);
     return () => window.removeEventListener('force-route-transition', handler as EventListener);
   }, []);
@@ -44,9 +52,9 @@ const RouteTransitionVideo: React.FC<{ skipFirst?: boolean }> = ({ skipFirst = f
       v.removeEventListener('ended', onEnded);
       v.removeEventListener('error', onError);
     };
-  }, [show]);
+  }, [show, videoSrc]);
 
-  if (!show) return null;
+  if (!show || !videoSrc) return null;
 
   return (
     <div style={{
@@ -68,7 +76,7 @@ const RouteTransitionVideo: React.FC<{ skipFirst?: boolean }> = ({ skipFirst = f
           background: '#000'
         }}
       >
-        <source src="/transition.mp4" type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
     </div>
   );
