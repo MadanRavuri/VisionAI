@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { ThemeProvider } from './contexts/ThemeContext';
+// ...existing code...
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -24,25 +24,23 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <Router>
-        <ScrollToTop />
-  <RouteTransitionVideo />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
-            <Route path="services/bot-vision" element={<BotVision />} />
-            <Route path="services/it-staffing" element={<ITStaffing />} />
-            <Route path="services/full-cycle-development" element={<FullCycleDevelopment />} />
-            <Route path="careers" element={<Careers />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="blog" element={<Blog />} />
-          </Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <Router>
+      <ScrollToTop />
+      <RouteTransitionVideo />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="services" element={<Services />} />
+          <Route path="services/bot-vision" element={<BotVision />} />
+          <Route path="services/it-staffing" element={<ITStaffing />} />
+          <Route path="services/full-cycle-development" element={<FullCycleDevelopment />} />
+          <Route path="careers" element={<Careers />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="blog" element={<Blog />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

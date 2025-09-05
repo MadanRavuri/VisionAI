@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Brain, Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Brain, Menu, X, ChevronDown } from 'lucide-react';
+// ...existing code...
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
+  // Dark mode only, no theme toggle
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -128,20 +128,12 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 shadow-3d-hover"
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
-            
             <Link
               to="/contact"
               className="hidden md:inline-flex px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-3d-hover"
             >
               Get Started
             </Link>
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
