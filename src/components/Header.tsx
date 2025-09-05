@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Brain, Menu, X, ChevronDown } from 'lucide-react';
-// ...existing code...
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  // Dark mode only, no theme toggle
+  // Dark mode only, no theme context
   const location = useLocation();
   const navigate = useNavigate();
 
