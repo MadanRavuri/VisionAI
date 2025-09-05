@@ -41,10 +41,21 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><span className="text-gray-400">AI Business Consulting</span></li>
-              <li><span className="text-gray-400">Predictive Analytics</span></li>
-              <li><span className="text-gray-400">Digital Transformation</span></li>
-              <li><span className="text-gray-400">Machine Learning Solutions</span></li>
+              <li>
+                <Link to="/services/bot-vision" className="text-gray-400 hover:text-white transition-all duration-300">
+                  BOT Vision
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/it-staffing" className="text-gray-400 hover:text-white transition-all duration-300">
+                  IT Staffing
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/full-cycle-development" className="text-gray-400 hover:text-white transition-all duration-300">
+                  Full Cycle Development
+                </Link>
+              </li>
             </ul>
           </div>
 

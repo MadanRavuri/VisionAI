@@ -1,72 +1,53 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, TrendingUp, Shield, Zap, Database, Bot, BarChart3, Cloud } from 'lucide-react';
+import { Brain, TrendingUp, Bot } from 'lucide-react';
 
 const Services: React.FC = () => {
   const services = [
     {
-      icon: Brain,
-      title: 'AI Business Consulting',
-      description: 'Strategic guidance to integrate AI into your business operations and drive growth.',
-      slug: 'ai-business-consulting',
-      features: ['AI Strategy Development', 'ROI Analysis', 'Implementation Planning', 'Change Management'],
+      icon: Bot,
+      title: 'BOT Vision',
+      description: 'Dedicated, long-term collaboration with top-tier bilingual engineers focused on your vision.',
+      slug: 'bot-vision',
+      features: [
+        'Long-term dedicated engineering teams',
+        'Bilingual technical expertise',
+        'Strategic vision alignment',
+        'Continuous innovation and improvement',
+        'Deep domain knowledge and experience',
+        'Seamless communication and collaboration',
+      ],
       color: 'blue',
     },
     {
       icon: TrendingUp,
-      title: 'Predictive Analytics',
-      description: 'Harness the power of data to predict trends and make informed business decisions.',
-      slug: 'predictive-analytics',
-      features: ['Demand Forecasting', 'Risk Assessment', 'Customer Behavior Analysis', 'Market Trend Prediction'],
+      title: 'IT Staffing',
+      description: 'Flexible, short-term contracts providing agile support for your project timelines.',
+      slug: 'it-staffing',
+      features: [
+        'Flexible contract durations',
+        'Agile project support',
+        'Specialized technical skills',
+        'Quick team scaling',
+        'Cost-effective solutions',
+        'Project-specific expertise',
+      ],
       color: 'purple',
     },
     {
-      icon: Shield,
-      title: 'AI-Powered Security',
-      description: 'Advanced security solutions using machine learning to protect your digital assets.',
-      slug: 'ai-powered-security',
-      features: ['Threat Detection', 'Anomaly Detection', 'Fraud Prevention', 'Cybersecurity Automation'],
+      icon: Brain,
+      title: 'Full Cycle Development',
+      description: 'Custom-fit teams for AI development, product architecture, and more — built for high-impact results.',
+      slug: 'full-cycle-development',
+      features: [
+        'AI development expertise',
+        'Product architecture design',
+        'Custom team composition',
+        'End-to-end project delivery',
+        'High-impact results focus',
+        'Scalable team solutions',
+      ],
       color: 'green',
-    },
-    {
-      icon: Zap,
-      title: 'Digital Transformation',
-      description: 'Complete digital transformation services to modernize your business processes.',
-      slug: 'digital-transformation',
-      features: ['Process Automation', 'Legacy System Migration', 'Cloud Integration', 'Digital Workflows'],
-      color: 'orange',
-    },
-    {
-      icon: Database,
-      title: 'Data Engineering',
-      description: 'Build robust data infrastructure to support your AI and analytics initiatives.',
-      slug: 'data-engineering',
-      features: ['Data Pipeline Development', 'ETL Processes', 'Data Warehousing', 'Real-time Processing'],
-      color: 'indigo',
-    },
-    {
-      icon: Bot,
-      title: 'Intelligent Automation',
-      description: 'Automate repetitive tasks and processes using advanced AI and machine learning.',
-      slug: 'intelligent-automation',
-      features: ['Robotic Process Automation', 'Chatbots & Virtual Assistants', 'Workflow Optimization', 'Task Automation'],
-      color: 'pink',
-    },
-    {
-      icon: BarChart3,
-      title: 'Business Intelligence',
-      description: 'Transform raw data into actionable insights with advanced BI and analytics tools.',
-      slug: 'business-intelligence',
-      features: ['Dashboard Development', 'Reporting Automation', 'Data Visualization', 'Performance Metrics'],
-      color: 'teal',
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud AI Solutions',
-      description: 'Scalable AI solutions built on leading cloud platforms for maximum flexibility.',
-      slug: 'cloud-ai-solutions',
-      features: ['Cloud Architecture', 'Serverless AI', 'Auto-scaling Solutions', 'Multi-cloud Deployment'],
-      color: 'cyan',
     },
   ];
 
@@ -91,7 +72,7 @@ const Services: React.FC = () => {
         {(() => {
           const heroVideos = ['/service.mov'].filter(Boolean);
           const [current, setCurrent] = useState(0);
-          const [cursor, setCursor] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+          // ...existing code...
           const sectionRef = useRef<HTMLDivElement | null>(null);
 
           useEffect(() => {
@@ -102,14 +83,10 @@ const Services: React.FC = () => {
             return () => clearInterval(id);
           }, [heroVideos.length]);
 
-          const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-            const rect = sectionRef.current?.getBoundingClientRect();
-            if (!rect) return;
-            setCursor({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-          };
+          // Mouse move handler removed (unused)
 
           return (
-            <div ref={sectionRef} className="absolute inset-0" onMouseMove={handleMouseMove}>
+            <div ref={sectionRef} className="absolute inset-0">
               {heroVideos.map((src, idx) => (
                 <video
                   key={`${src}-${idx}`}

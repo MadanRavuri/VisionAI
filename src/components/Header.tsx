@@ -19,14 +19,9 @@ const Header: React.FC = () => {
   ];
 
   const servicesItems = [
-    { path: '/services/ai-business-consulting', label: 'AI Business Consulting', description: 'Strategic guidance' },
-    { path: '/services/predictive-analytics', label: 'Predictive Analytics', description: 'Data insights' },
-    { path: '/services/ai-powered-security', label: 'AI-Powered Security', description: 'Intelligent protection' },
-    { path: '/services/digital-transformation', label: 'Digital Transformation', description: 'Modernize operations' },
-    { path: '/services/data-engineering', label: 'Data Engineering', description: 'Robust infrastructure' },
-    { path: '/services/intelligent-automation', label: 'Intelligent Automation', description: 'Streamline processes' },
-    { path: '/services/business-intelligence', label: 'Business Intelligence', description: 'Actionable insights' },
-    { path: '/services/cloud-ai-solutions', label: 'Cloud AI Solutions', description: 'Scalable cloud AI' },
+    { path: '/services/bot-vision', label: 'BOT Vision' },
+    { path: '/services/it-staffing', label: 'IT Staffing' },
+    { path: '/services/full-cycle-development', label: 'Full Cycle Development' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -108,9 +103,7 @@ const Header: React.FC = () => {
                           }`}>
                             {item.label}
                           </span>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
-                            {item.description}
-                          </span>
+                          {/* Only show name, no description */}
                         </div>
                       </Link>
                     ))}

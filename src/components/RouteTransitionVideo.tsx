@@ -76,7 +76,7 @@ const RouteTransitionVideo: React.FC = () => {
           background: '#000'
         }}
       >
-        <source src={videoSrc} type="video/mp4" />
+        <source src={videoSrc === '/transition.mp4' ? '/navigation.mp4' : videoSrc} type="video/mp4" />
       </video>
     </div>
   );

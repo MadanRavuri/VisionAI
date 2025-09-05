@@ -5,7 +5,9 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
-import ServiceDetail from './pages/ServiceDetail';
+import BotVision from './pages/BotVision';
+import ITStaffing from './pages/ITStaffing';
+import FullCycleDevelopment from './pages/FullCycleDevelopment';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
@@ -31,7 +33,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="services" element={<Services />} />
-            <Route path="services/:slug" element={<ServiceDetail />} />
+            <Route path="services/bot-vision" element={<BotVision />} />
+            <Route path="services/it-staffing" element={<ITStaffing />} />
+            <Route path="services/full-cycle-development" element={<FullCycleDevelopment />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />
             <Route path="blog" element={<Blog />} />
